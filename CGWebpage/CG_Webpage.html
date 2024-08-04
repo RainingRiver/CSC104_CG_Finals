@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasty Treasure</title>
-    <link rel="stylesheet" href="./styles.css">
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css">
     <script>
+        // Recipes data organized by meal types
         const recipes = {
             breakfast: [
                 {
@@ -81,6 +83,7 @@
             ]
         };
 
+        // Function to show recipes of a specific type
         function showRecipes(type) {
             const recipeContainer = document.querySelector('.recipe-container');
             recipeContainer.innerHTML = '';
@@ -93,6 +96,7 @@
             });
         }
 
+        // Function to show the first recipe of each type initially
         function showInitialRecipes() {
             const recipeContainer = document.querySelector('.recipe-container');
             recipeContainer.innerHTML = '';
@@ -105,20 +109,24 @@
             });
         }
 
+        // Show initial recipes when the page loads
         window.onload = showInitialRecipes;
     </script>
 </head>
 <body>
+    <!-- Header section -->
     <header>
         <h1>Tasty Treasure</h1>
     </header>
     <div class="separator"></div>
+    <!-- Navigation buttons -->
     <nav>
         <button onclick="showRecipes('breakfast')">Breakfast</button>
         <button onclick="showRecipes('lunch')">Lunch</button>
         <button onclick="showRecipes('dinner')">Dinner</button>
         <button onclick="showRecipes('dessert')">Dessert</button>
     </nav>
+    <!-- Container to display recipes -->
     <div class="recipe-container">
         <!-- Recipes will be shown here -->
     </div>
