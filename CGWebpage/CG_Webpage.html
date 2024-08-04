@@ -3,72 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        header {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .separator {
-            width: 100%;
-            height: 5px;
-            background-color: #000;
-            margin: 20px 0;
-        }
-        nav {
-            margin-bottom: 20px;
-        }
-        nav button {
-            margin: 0 10px;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-        .recipe-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .recipe {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 20px;
-            margin: 10px 0;
-            width: 200px;
-            text-align: center;
-        }
-    </style>
+    <title>Tasty Treasure</title>
+    <link rel="stylesheet" href="./styles.css">
     <script>
         const recipes = {
             breakfast: [
-                "Pancakes",
-                "Omelette",
-                "French Toast",
-                "Smoothie Bowl"
+                {
+                    name: "Pancakes",
+                    instructions: "Mix flour, milk, and eggs. Cook on a hot griddle until golden brown."
+                },
+                {
+                    name: "Omelette",
+                    instructions: "Whisk eggs and cook in a pan. Add fillings of your choice and fold."
+                },
+                {
+                    name: "French Toast",
+                    instructions: "Dip bread in egg mixture and cook on a skillet until golden."
+                },
+                {
+                    name: "Smoothie Bowl",
+                    instructions: "Blend fruits and yogurt. Pour into a bowl and top with granola."
+                }
             ],
             lunch: [
-                "Caesar Salad",
-                "Grilled Cheese Sandwich",
-                "Chicken Wrap",
-                "Quinoa Bowl"
+                {
+                    name: "Caesar Salad",
+                    instructions: "Toss romaine lettuce with Caesar dressing, croutons, and Parmesan."
+                },
+                {
+                    name: "Grilled Cheese Sandwich",
+                    instructions: "Butter bread and grill with cheese until golden brown."
+                },
+                {
+                    name: "Chicken Wrap",
+                    instructions: "Fill tortilla with chicken, veggies, and sauce. Roll up and enjoy."
+                },
+                {
+                    name: "Quinoa Bowl",
+                    instructions: "Mix cooked quinoa with vegetables, beans, and a dressing of your choice."
+                }
             ],
             dinner: [
-                "Spaghetti Bolognese",
-                "Grilled Salmon",
-                "Chicken Curry",
-                "Vegetable Stir Fry"
+                {
+                    name: "Spaghetti Bolognese",
+                    instructions: "Cook spaghetti and top with a rich meat sauce."
+                },
+                {
+                    name: "Grilled Salmon",
+                    instructions: "Season salmon and grill until flaky and cooked through."
+                },
+                {
+                    name: "Chicken Curry",
+                    instructions: "Cook chicken in a spicy curry sauce. Serve with rice."
+                },
+                {
+                    name: "Vegetable Stir Fry",
+                    instructions: "Stir fry vegetables in a hot pan with soy sauce and seasonings."
+                }
             ],
             dessert: [
-                "Chocolate Cake",
-                "Apple Pie",
-                "Ice Cream Sundae",
-                "Brownies"
+                {
+                    name: "Chocolate Cake",
+                    instructions: "Bake a rich chocolate cake and frost with chocolate icing."
+                },
+                {
+                    name: "Apple Pie",
+                    instructions: "Bake apples in a pie crust with cinnamon and sugar."
+                },
+                {
+                    name: "Ice Cream Sundae",
+                    instructions: "Top ice cream with your favorite toppings and sauces."
+                },
+                {
+                    name: "Brownies",
+                    instructions: "Bake chocolate brownies until fudgy and delicious."
+                }
             ]
         };
 
@@ -79,7 +88,7 @@
             recipes[type].forEach(recipe => {
                 const recipeBox = document.createElement('div');
                 recipeBox.className = 'recipe';
-                recipeBox.textContent = recipe;
+                recipeBox.innerHTML = `<h3>${recipe.name}</h3><p class="instructions">${recipe.instructions}</p>`;
                 recipeContainer.appendChild(recipeBox);
             });
         }
@@ -91,7 +100,7 @@
             Object.keys(recipes).forEach(category => {
                 const recipeBox = document.createElement('div');
                 recipeBox.className = 'recipe';
-                recipeBox.textContent = recipes[category][0];
+                recipeBox.innerHTML = `<h3>${recipes[category][0].name}</h3><p class="instructions">${recipes[category][0].instructions}</p>`;
                 recipeContainer.appendChild(recipeBox);
             });
         }
@@ -101,7 +110,7 @@
 </head>
 <body>
     <header>
-        <h1>Recipe Website</h1>
+        <h1>Tasty Treasure</h1>
     </header>
     <div class="separator"></div>
     <nav>
