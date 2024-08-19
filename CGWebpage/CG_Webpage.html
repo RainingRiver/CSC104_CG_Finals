@@ -81,11 +81,17 @@
                     instructions: "To make rich and fudgy brownies, preheat your oven to 350°F (175°C) and grease a 9x9-inch baking pan or line it with parchment paper. In a medium saucepan, melt 1 cup (2 sticks) of unsalted butter over low heat. Once melted, remove from heat and stir in 2 cups of granulated sugar until well combined. Add 4 large eggs, one at a time, mixing well after each addition, and then stir in 1 teaspoon of vanilla extract. In a separate bowl, sift together 1 cup of all-purpose flour, 1/2 cup of unsweetened cocoa powder, and a pinch of salt. Gradually fold the dry ingredients into the wet mixture until just combined. For added texture, you can fold in 1 cup of chocolate chips or chopped nuts if desired. Pour the batter into the prepared pan and spread it evenly. Bake for 25 to 30 minutes, or until a toothpick inserted into the center comes out with a few moist crumbs. Let the brownies cool in the pan before cutting into squares. Enjoy your delicious homemade brownies!"
                 }
             ]
+
         };
 
-        // Function to show recipes of a specific type
+        // Function to show recipes of a specific type and update the header title
         function showRecipes(type) {
             const recipeContainer = document.querySelector('.recipe-container');
+            const headerTitle = document.querySelector('header h1');
+            
+            // Update the header title based on the selected recipe type
+            headerTitle.textContent = `Tasty Treasure: ${type.charAt(0).toUpperCase() + type.slice(1)}`;
+
             recipeContainer.innerHTML = '';
 
             recipes[type].forEach(recipe => {
@@ -99,6 +105,11 @@
         // Function to show the first recipe of each type initially
         function showInitialRecipes() {
             const recipeContainer = document.querySelector('.recipe-container');
+            const headerTitle = document.querySelector('header h1');
+
+            // Update the header title to show default message initially
+            headerTitle.textContent = "Tasty Treasure";
+
             recipeContainer.innerHTML = '';
 
             Object.keys(recipes).forEach(category => {
